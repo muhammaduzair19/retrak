@@ -41,9 +41,9 @@ const footerData = [
 
 const Footer = () => {
     return (
-        <footer className="px-4 md:px-10 lg:px-20 w-full">
-            <div className="w-full flex flex-col">
-                <div className="flex flex-col items-center md:grid grid-cols-[4fr_8fr]">
+        <footer className="px-4 md:px-10 lg:px-20 border-t border-gray-300 w-full">
+            <div className="w-full flex flex-col md:border-x border-gray-300 md:px-8">
+                <div className="flex flex-col items-center md:grid grid-cols-[4fr_8fr] py-4 md:py-6 md:px-4 md:border-x border-gray-300">
                     <div className="flex h-full flex-col max-md:gap-6 justify-between max-md:items-center w-full  ">
                         <Image width={200} height={200} src={"/logo.svg"} />
                         <div className="flex gap-5">
@@ -143,7 +143,7 @@ const Footer = () => {
                         ))}
                     </div>
                 </div>
-                <div className="mt-7 text-gray-500 flex justify-between flex-wrap ">
+                <div className="mt-7 text-gray-500 flex justify-center flex-col sm:flex-row  md:justify-between flex-wrap mb-3 items-center">
                     <p>© 2024 Retrak, Inc. All Rights Reserved.</p>
                     <p>Built with 🚀</p>
                 </div>

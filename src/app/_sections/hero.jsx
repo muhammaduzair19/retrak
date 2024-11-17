@@ -5,9 +5,9 @@ import React from "react";
 
 const Hero = () => {
     return (
-        <section id="home" className="w-full min-h-screen px-4 md:px-10  lg:px-20 bg-gradient-to-b pt-24 from-blue-200/60 via-transparent to-transparent">
-            <div className="w-full ">
-                <div className="flex flex-col items-center w-full">
+        <section id="home" className="w-full min-h-screen px-4 md:px-10  lg:px-20 bg-gradient-to-b  from-blue-200/60 via-transparent to-transparent ">
+            <div className="w-full md:border-x border-gray-300 px-8">
+                <div className="flex flex-col items-center w-full md:border-x border-gray-300">
                     <Button
                         variant="secondary"
                         className=" rounded-lg md:rounded-xl mt-5 md:mt-10 text-base py-5 border-[1px] border-gray-300 text-gray-500"

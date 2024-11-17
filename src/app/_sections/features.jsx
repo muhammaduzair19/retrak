@@ -41,7 +41,7 @@ const Features = () => {
                         <div className="flex flex-col h-auto  gap-5 md:gap-8 w-full">
                             <div className="w-full md:min-h-1/2 md:h-auto p-6 bg-gray-50 lg:rounded-[2rem] md:rounded-3xl rounded-xl">
                                 <ApplicationTracking
-                                    step={1}
+                                    step={2}
                                     label={"Application Tracking"}
                                     text={
                                         "Monitor your applications all in one place."
@@ -50,7 +50,7 @@ const Features = () => {
                             </div>
                             <div className=" w-full md:h-1/2 p-6 bg-gray-50 lg:rounded-[2rem] md:rounded-3xl rounded-xl">
                                 <JobRecommendation
-                                    step={1}
+                                    step={3}
                                     label={"Job Recommendations"}
                                     text={
                                         "Find personalized job matches tailored to you"
@@ -60,7 +60,7 @@ const Features = () => {
                         </div>
                         <div className="w-full h-auto p-6 bg-gray-50 lg:rounded-[2rem] md:rounded-3xl rounded-xl">
                             <CompanyInsights
-                                step={1}
+                                step={4}
                                 label={"Company Insights"}
                                 text={
                                     "Get insider prep and data for top companies."

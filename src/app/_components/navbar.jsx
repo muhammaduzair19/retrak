@@ -61,9 +61,9 @@ const Navbar = () => {
         <nav
             className={`w-full h-20 fixed border-b border-gray-300 z-50 ${
                 isExpanded ? "bg-white/5 backdrop-blur-lg" : "bg-transparent"
-            } transition-colors duration-300`}
+            } transition-colors duration-300 px-4 md:px-10 lg:px-20`}
         >
-            <div className="flex justify-between items-center w-full border-x border-gray-300 h-20 px-4 md:px-10 lg:px-20">
+            <div className="flex justify-between items-center w-full md:px-10 md:border-x border-gray-300 h-20 ">
                 <div className="flex items-center gap-10">
                     <Link href={'/'}>
                         <Image

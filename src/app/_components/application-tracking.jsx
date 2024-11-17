@@ -28,36 +28,38 @@ const ApplicationTracking = ({ step, label, text }) => {
 
     return (
         <div className="flex flex-col items-center justify-center ">
-            <p className="text-sm -mb-2 text-gray-400 text-left">
-                STEP {currentStep}
-            </p>
+            <div className="w-full">
+                <p className="text-sm mb-1 text-gray-400 text-left">
+                    STEP {step}
+                </p>
+            </div>
 
             <div className="w-full max-w-md">
                 {/* Progress bar */}
-                <div className="relative flex justify-between mb-12">
+                <div className="relative flex items-center justify-between mb-12">
                     {steps.map((_, index) => (
-                        <div key={index} className="flex items-center">
+                        <React.Fragment key={index}>
                             {/* Dot */}
                             <div
-                                className={`w-2 h-2 md:w-4 md:h-4 rounded-full transition-colors duration-200 ${
+                                className={`w-4 h-4 md:w-6 md:h-6 mt-1.5 rounded-full transition-colors duration-300 ${
                                     index + 1 <= currentStep
                                         ? "bg-gray-900"
                                         : "bg-gray-300"
                                 }`}
                             />
-                            {/* Line */}
+                            {/* Dotted Line */}
                             {index < totalSteps - 1 && (
-                                <div className="flex-1 h-[2px] border border-dashed">
+                                <div className="flex-1 flex h-1 md:h-2 items-center">
                                     <div
-                                        className={`h-full transition-all duration-500 ${
+                                        className={`flex-1 h-full border-dashed border-b md:border-b-2 ${
                                             index + 1 < currentStep
-                                                ? "bg-gray-900"
-                                                : "bg-gray-300"
+                                                ? "border-gray-900"
+                                                : "border-gray-300"
                                         }`}
                                     />
                                 </div>
                             )}
-                        </div>
+                        </React.Fragment>
                     ))}
                 </div>
 
