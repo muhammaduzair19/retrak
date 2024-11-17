@@ -56,7 +56,7 @@ const Testimonials = () => {
                 <div className="flex flex-col items-center justify-center">
                     <Button
                         variant="secondary"
-                        className=" rounded-lg md:rounded-xl mt-5 md:mt-10 text-base border-[1px] border-gray-300 text-gray-500"
+                        className="py-5 rounded-lg md:rounded-xl mt-5 md:mt-10 text-base border-[1px] border-gray-300 text-gray-500"
                     >
                         <Sparkle fill="#6b7280" />
                         User Testimonials

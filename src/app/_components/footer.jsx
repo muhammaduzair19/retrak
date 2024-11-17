@@ -44,7 +44,7 @@ const Footer = () => {
         <footer className="px-4 md:px-10 lg:px-20 w-full">
             <div className="w-full flex flex-col">
                 <div className="flex flex-col items-center md:grid grid-cols-[4fr_8fr]">
-                    <div className="flex h-full flex-col justify-between w-full  ">
+                    <div className="flex h-full flex-col max-md:gap-6 justify-between max-md:items-center w-full  ">
                         <Image width={200} height={200} src={"/logo.svg"} />
                         <div className="flex gap-5">
                             <Link
@@ -128,7 +128,7 @@ const Footer = () => {
                     <div className="flex flex-wrap w-full justify-between mt-10">
                         {footerData?.map(({ category, links }) => (
                             <div key={category} className="flex flex-col gap-4">
-                                <h3 className="text-black text-lg font-medium">
+                                <h3 className="text-black max-sm:mt-5 text-lg font-medium">
                                     {category}
                                 </h3>
                                 {links?.map(({ name }) => (

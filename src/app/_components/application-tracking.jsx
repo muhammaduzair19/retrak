@@ -1,39 +1,43 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Check, Circle } from "lucide-react";
+import { Check } from "lucide-react";
+import { MoonLoader } from "react-spinners";
 
 const ApplicationTracking = ({ step, label, text }) => {
     const [currentStep, setCurrentStep] = useState(1);
     const [isComplete, setIsComplete] = useState(false);
     const totalSteps = 4;
+    const steps = ["Applied", "Interviewed", "Offered", "Accepted"];
 
-    // Simulate progress
+    // Simulate progress with looping effect
     useEffect(() => {
-        if (currentStep < totalSteps && !isComplete) {
-            const timer = setTimeout(() => {
+        const timer = setTimeout(() => {
+            if (currentStep < totalSteps) {
                 setCurrentStep((prev) => prev + 1);
-            }, 1500);
-
-            return () => clearTimeout(timer);
-        }
-
-        if (currentStep === totalSteps && !isComplete) {
-            const timer = setTimeout(() => {
+            } else {
                 setIsComplete(true);
-            }, 1000);
+                setTimeout(() => {
+                    setCurrentStep(1); // Reset the loop
+                    setIsComplete(false);
+                }, 1500); // Pause briefly before restarting the loop
+            }
+        }, 1500);
 
-            return () => clearTimeout(timer);
-        }
+        return () => clearTimeout(timer);
     }, [currentStep, isComplete]);
+
     return (
         <div className="flex flex-col items-center justify-center ">
-            <p className="text-sm -mb-2 text-gray-400 text-left">STEP {step}</p>
+            <p className="text-sm -mb-2 text-gray-400 text-left">
+                STEP {currentStep}
+            </p>
 
             <div className="w-full max-w-md">
                 {/* Progress bar */}
                 <div className="relative flex justify-between mb-12">
-                    {[...Array(totalSteps)].map((_, index) => (
+                    {steps.map((_, index) => (
                         <div key={index} className="flex items-center">
+                            {/* Dot */}
                             <div
                                 className={`w-2 h-2 md:w-4 md:h-4 rounded-full transition-colors duration-200 ${
                                     index + 1 <= currentStep
@@ -41,8 +45,9 @@ const ApplicationTracking = ({ step, label, text }) => {
                                         : "bg-gray-300"
                                 }`}
                             />
+                            {/* Line */}
                             {index < totalSteps - 1 && (
-                                <div className="flex-1 h-[2px]  border border-dashed 0 ">
+                                <div className="flex-1 h-[2px] border border-dashed">
                                     <div
                                         className={`h-full transition-all duration-500 ${
                                             index + 1 < currentStep
@@ -56,20 +61,31 @@ const ApplicationTracking = ({ step, label, text }) => {
                     ))}
                 </div>
 
+                {/* Status Text */}
                 <div className="flex flex-col items-center text-center">
-                    <div
-                        className={`w-8 h-8 md:w-12 md:h-12 rounded-full border-[2px] border-gray-300 flex items-center justify-center mb-6 transition-colors duration-300 ${
-                            isComplete
-                                ? "bg-gray-700 text-white"
-                                : "text-gray-900"
-                        }`}
-                    >
-                        {isComplete && (
-                            <Check className="w-3 h-3 md:w-5 md:h-5 xl:w-8 xl:h-8 transition-all duration-300" />
-                        )}
-                    </div>
+                    {isComplete ? (
+                        <div
+                            className={`w-12 h-12 md:w-16 md:h-16 rounded-full border-[4px] border-gray-300 flex items-center justify-center transition-colors duration-300 ${
+                                isComplete
+                                    ? "bg-gray-700 text-white"
+                                    : "text-gray-900"
+                            }`}
+                        >
+                            {isComplete && (
+                                <Check className="w-6 h-6 md:w-8 md:h-8 transition-all duration-300" />
+                            )}
+                        </div>
+                    ) : (
+                        <div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16">
+                            <MoonLoader
+                                size={48} // Matches the size of the circle
+                                color={"#4A5568"} // A sleek gray spinner
+                                speedMultiplier={0.5} // Slightly faster spin
+                            />
+                        </div>
+                    )}
                     <h2 className="text-2xl text-gray-600 font-thin mb-5">
-                        Applied
+                        {steps[currentStep - 1]}
                     </h2>
                     <div className="w-full flex flex-col items-center mt-3">
                         <p className="text-2xl md:text-3xl">{label}</p>

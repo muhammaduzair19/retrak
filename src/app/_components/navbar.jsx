@@ -16,6 +16,27 @@ import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [activeSection, setActiveSection] = useState("");
+
+    useEffect(() => {
+        const sections = document.querySelectorAll("section");
+        const options = {
+            root: null,
+            threshold: 0.5, // Trigger when 50% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id); // Update active section
+                }
+            });
+        }, options);
+
+        sections.forEach((section) => observer.observe(section));
+
+        return () => observer.disconnect(); // Cleanup observer on unmount
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -44,32 +65,74 @@ const Navbar = () => {
         >
             <div className="flex justify-between items-center w-full border-x border-gray-300 h-20 px-4 md:px-10 lg:px-20">
                 <div className="flex items-center gap-10">
-                    <span>
+                    <Link href={'/'}>
                         <Image
                             src={"/logo.svg"}
                             width={120}
                             height={120}
                             alt="Logo"
                         />
-                    </span>
+                    </Link>
                     <div className="max-lg:hidden text-sm flex items-center gap-8">
-                        <Link className="text-gray-400" href={"#home"}>
+                        <Link
+                            className={`${
+                                activeSection === "home"
+                                    ? "text-gray-950"
+                                    : "text-gray-400"
+                            }`}
+                            href={"#home"}
+                        >
                             Home
                         </Link>
-                        <Link className="text-gray-400" href={"#features"}>
+                        <Link
+                            className={`${
+                                activeSection === "features"
+                                    ? "text-gray-950"
+                                    : "text-gray-400"
+                            }`}
+                            href={"#features"}
+                        >
                             Features
                         </Link>
-                        <Link className="text-gray-400" href={"#how-it-works"}>
+                        <Link
+                            className={`${
+                                activeSection === "how-it-works"
+                                    ? "text-gray-950"
+                                    : "text-gray-400"
+                            }`}
+                            href={"#how-it-works"}
+                        >
                             How It Works
                         </Link>
-                        <Link className="text-gray-400" href={"#testimonials"}>
+                        <Link
+                            className={`${
+                                activeSection === "testimonials"
+                                    ? "text-gray-950"
+                                    : "text-gray-400"
+                            }`}
+                            href={"#testimonials"}
+                        >
                             Testimonials
                         </Link>
-                        <Link className="text-gray-400" href={"#pricing"}>
+                        <Link
+                            className={`${
+                                activeSection === "pricing"
+                                    ? "text-gray-950"
+                                    : "text-gray-400"
+                            }`}
+                            href={"#pricing"}
+                        >
                             Pricing
                         </Link>
 
-                        <Link className="text-gray-400" href={"#faqs"}>
+                        <Link
+                            className={`${
+                                activeSection === "faqs"
+                                    ? "text-gray-950"
+                                    : "text-gray-400"
+                            }`}
+                            href={"#faqs"}
+                        >
                             FAQ
                         </Link>
                     </div>

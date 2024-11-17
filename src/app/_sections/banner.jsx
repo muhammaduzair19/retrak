@@ -22,7 +22,7 @@ const Banner = () => {
                         Get started with Retrak today!
                     </p>
                 </div>
-                <Button className="rounded-lg md:rounded-xl text-sm md:text-base text-white mt-10">
+                <Button className="rounded-lg md:rounded-xl text-sm md:text-base text-white mt-10 py-5">
                     Get Started for Free <ChevronRight />
                 </Button>
             </div>

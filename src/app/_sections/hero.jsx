@@ -10,7 +10,7 @@ const Hero = () => {
                 <div className="flex flex-col items-center w-full">
                     <Button
                         variant="secondary"
-                        className=" rounded-lg md:rounded-xl mt-5 md:mt-10 text-base border-[1px] border-gray-300 text-gray-500"
+                        className=" rounded-lg md:rounded-xl mt-5 md:mt-10 text-base py-5 border-[1px] border-gray-300 text-gray-500"
                     >
                         <Sparkles fill="#6b7280" />
                         Coming 2025
@@ -22,7 +22,7 @@ const Hero = () => {
                         Resume Building Made{" "}
                         <span className="text-gray-500">Simple</span>
                     </h1>
-                    <p className="text-base md:text-2xl lg:text-3xl text-gray-500 text-center lg:w-[1000px] mt-5">
+                    <p className="text-base md:text-xl lg:text-2xl text-gray-500 text-center lg:w-[1000px] mt-5">
                         Track applications, create standout resumes, and find
                         personalized job recommendations—all in one organized
                         space. Let Retrak streamline your job search journey.
@@ -54,12 +54,12 @@ const Hero = () => {
                         </div>
                     </div>
                     <div className="flex items-center flex-wrap gap-2 justify-center my-10">
-                        <Button className="rounded-lg md:rounded-xl text-sm md:text-base text-white">
-                            Get Startef for Free <ChevronRight />
+                        <Button className="rounded-lg md:rounded-xl text-sm md:text-base text-white py-5">
+                            Get Started for Free <ChevronRight />
                         </Button>
                         <Button
                             variant="secondary"
-                            className="rounded-lg md:rounded-xl text-sm md:text-base border-[1px] border-gray-300 text-gray-500"
+                            className="rounded-lg py-5 md:rounded-xl text-sm md:text-base border-[1px] border-gray-300 text-gray-500"
                         >
                             Watch Demo <ChevronRight />
                         </Button>

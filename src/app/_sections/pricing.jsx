@@ -63,7 +63,7 @@ const Pricing = () => {
                 <div className="flex flex-col items-center justify-center">
                     <Button
                         variant="secondary"
-                        className=" rounded-lg md:rounded-xl mt-5 md:mt-10 text-base border-[1px] border-gray-300 text-gray-500"
+                        className="py-5 rounded-lg md:rounded-xl mt-5 md:mt-10 text-base border-[1px] border-gray-300 text-gray-500"
                     >
                         <Sparkle fill="#6b7280" />
                         Pricing Plans
@@ -81,7 +81,7 @@ const Pricing = () => {
                         ))}
                     </div>
                 </div>
-                <Button className="rounded-lg md:rounded-xl text-sm md:text-base text-white mt-10">
+                <Button className="rounded-lg md:rounded-xl text-sm md:text-base text-white mt-10 py-5">
                     Get Started for Free <ChevronRight />
                 </Button>
             </div>
